@@ -40,15 +40,27 @@ class Pelicula extends BaseController
         ]);
         echo 'update';
     }
+public function delete($id)
+{
+    $peliculaModel = new PeliculaModel();
+    $peliculaModel->delete($id);
+
+    echo 'delete';
+}
+
     public function new(){
-        echo view('pelicula/new');
+        echo view('pelicula/new',[
+            'pelicula'=>[
+                'titulo'=> "",
+                'descripcion'=> ""
+            ]
+        ]);
     }
     public function index()
     {
        $peliculaModel = new PeliculaModel();
 
-     
-        echo view('index',[
+             echo view('pelicula/index',[
             'peliculas'=> $peliculaModel->findAll()
         ]);
 
