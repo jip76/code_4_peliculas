@@ -6,8 +6,8 @@
     <title>Crear Peliculas</title>
 </head>
 <body>
-    <form action="/pelicula/create " method="post">
-    <?=  view('pelicula/_form',['op'=>'crear'])?>
+    <form action="/dashboard/pelicula/create " method="post">
+    <?=  view('dashboard/pelicula/_form',['op'=>'crear'])?>
     </form>
 </body>
 </html> 
