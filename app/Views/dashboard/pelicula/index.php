@@ -10,7 +10,7 @@
 
 <body>
     <h1>Listado Películas </h1>
-
+    <?= view('partials/_session') ?>
 
     <a href="/dashboard/pelicula/new">Crear</a>
     <table>

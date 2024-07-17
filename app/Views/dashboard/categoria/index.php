@@ -10,7 +10,8 @@
 
 <body>
     <h1>Listado Categorias </h1>
-
+    <?= session('key')?>
+    <?= view('partials/_session') ?>
 
     <a href="/dashboard/categoria/new">Crear</a>
     <table>

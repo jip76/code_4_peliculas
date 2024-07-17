@@ -9,8 +9,9 @@ class Pelicula extends BaseController
 {
     public function show($id)
     {
+        
         $peliculaModel = new PeliculaModel();
-        echo view('dashboar/pelicula/show',[
+        echo view('dashboard/pelicula/show',[
             'pelicula'=> $peliculaModel->find($id)
         ]);
     }
@@ -21,7 +22,7 @@ class Pelicula extends BaseController
             'titulo' =>$this->request->getPost('titulo'),
             'descripcion'=>$this->request->getPost('descripcion')
         ]);
-        return redirect()->to('/dashboard/pelicula');      
+        return redirect()->to('/dashboard/pelicula/')->with('mensaje','registro creado satifactoriamente');      
     }
 
     public function edit($id)
@@ -39,12 +40,14 @@ class Pelicula extends BaseController
             'titulo'=> $this->request->getPost('titulo'),
             'descripcion'=> $this->request->getPost('descripcion')
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('mensaje', 'Registro eliminado de manera exitosa');
     }
 public function delete($id)
 {
     $peliculaModel = new PeliculaModel();
     $peliculaModel->delete($id);
+
+    session()->setFlashdata('mensaje', 'Registro eliminado  de manera exitosa');
 
     return redirect()->back();
 }
@@ -59,6 +62,7 @@ public function delete($id)
     }
     public function index()
     {
+        session()->set('key','value');
        $peliculaModel = new PeliculaModel();
 
              echo view('dashboard/pelicula/index',[
